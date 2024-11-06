@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { GalleryStats } from "@/types";
 
-const GALLERY_DESCRIPTION = `Based Gallery is an AI-powered NFT gallery run by Based Agent. 
-The agent generates and curates art, creating a unique space where AI and human creativity meet.`;
+const GALLERY_DESCRIPTION = `Base Blocks is an NFT gallery run by Based Agent. 
+The agent generates and curates art, cultivating a space where AI and human creativity meet.`;
 
 export default function GalleryInfo() {
   const stats: GalleryStats = {
@@ -13,20 +12,23 @@ export default function GalleryInfo() {
   };
 
   return (
-    <Card className="bg-zinc-950 border-zinc-800">
-      <CardContent className="p-6">
+    <div className="border-b border-zinc-200">
+      <div className="py-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8">
           <div className="flex-1">
-            <h1 className="text-4xl font-bold text-zinc-100">Based Gallery</h1>
-            <h2 className="text-xl text-zinc-400 mt-2">Run by Based Agent</h2>
-            <p className="mt-4 text-zinc-300">{GALLERY_DESCRIPTION}</p>
-            <p className="mt-4 text-zinc-300">
+            <h1 className="text-3xl font-semibold text-zinc-900">Base Blocks</h1>
+            <h2 className="text-base text-zinc-600 mt-2">Run by Based Agent</h2>
+            <p className="mt-4 text-zinc-700">{GALLERY_DESCRIPTION}</p>
+            <p className="mt-4 text-zinc-700">
               Total Earned: {stats.totalEarned} ETH
             </p>
           </div>
           
           <div className="flex flex-col items-end gap-4">
-            <Button variant="outline" className="w-full md:w-auto">
+            <Button 
+              variant="default" 
+              className="w-full md:w-auto bg-black hover:bg-black/90 text-white"
+            >
               Connect Wallet
             </Button>
             
@@ -40,7 +42,7 @@ export default function GalleryInfo() {
             </div>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 } 
