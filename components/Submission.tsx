@@ -5,6 +5,7 @@ import { ArtPiece } from "@/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 export default function Submission() {
   const [prompt, setPrompt] = useState("");
@@ -16,7 +17,7 @@ export default function Submission() {
     const newSubmission: ArtPiece = {
       id: Date.now().toString(),
       title: prompt,
-      imageUrl: "placeholder-url",
+      imageUrl: "https://placehold.co/400x400",
       artist: "AI",
       status: "Pending"
     };
@@ -31,9 +32,11 @@ export default function Submission() {
         {submissions.map((piece) => (
           <Card key={piece.id} className="bg-zinc-900 border-zinc-800">
             <CardContent className="p-4">
-              <img
+              <Image
                 src={piece.imageUrl}
                 alt={piece.title}
+                width={400}
+                height={400}
                 className="w-full aspect-square object-cover rounded-lg"
               />
               <h3 className="mt-4 font-bold text-zinc-100">{piece.title}</h3>

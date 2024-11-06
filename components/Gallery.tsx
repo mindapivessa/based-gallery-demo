@@ -2,6 +2,7 @@ import { ArtPiece } from "@/types";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
 export default function Gallery() {
   const artPieces: ArtPiece[] = [];
@@ -27,10 +28,12 @@ export default function Gallery() {
           artPieces.map((piece) => (
             <Card key={piece.id} className="bg-zinc-900 border-zinc-800">
               <CardContent className="p-4">
-                <img
+                <Image
                   src={piece.imageUrl}
                   alt={piece.title}
-                  className="w-full aspect-square object-cover rounded-lg"
+                  width={400}
+                    height={400}
+                    className="w-full aspect-square object-cover rounded-lg"
                 />
                 <h3 className="mt-4 font-bold text-zinc-100">{piece.title}</h3>
                 <p className="text-zinc-400">{piece.artist}</p>
